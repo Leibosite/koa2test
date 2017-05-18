@@ -1,5 +1,5 @@
 
-function prime(num) {
+function prime(start,num) {
     
     var i , j, arr = [];
     for(i = 2;i < num;i++){
@@ -10,15 +10,16 @@ function prime(num) {
     }
 
     return arr.filter(function (key) {
-        return key>=6;
+        return key>=start;
     });
 }
 
 function main(num) {
     var arr = {};
-    var primeArr = prime(num);
-    console.log(primeArr);
-    for(let i=0;i<primeArr.length-1;i++){
+    var primeArr = prime(6,num);
+
+    for(let i=0;i<primeArr.length;i++){
+
         for(let j = i + 1;j<primeArr.length;j++){
             var sum = primeArr[i]+primeArr[j];
             if(sum % 2 === 0) arr[sum] = 1;
@@ -28,5 +29,5 @@ function main(num) {
     return arr;
 }
 
-var arr = main(20);
+var arr = main(30);
 console.log(arr);
